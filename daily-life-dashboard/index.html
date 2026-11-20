@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Life Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="site-header">
+    <div class="header-left">
+      <p class="header-date" id="headerDate"></p>
+      <h1 class="greeting" id="greeting">Good Morning</h1>
+      <div class="name-row">
+        <input
+          type="text"
+          id="nameInput"
+          class="name-input"
+          placeholder="Enter your name"
+          maxlength="40"
+          aria-label="Your name"
+        />
+        <button class="btn btn-primary" id="saveNameBtn">Save</button>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="btn btn-icon" id="themeToggleBtn" aria-label="Toggle dark mode" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════ MAIN GRID ═══════════════ -->
+  <main class="dashboard-grid">
+
+    <!-- ── DIGITAL CLOCK ── -->
+    <article class="card card-clock" aria-label="Digital clock">
+      <h2 class="card-title">Clock</h2>
+      <p class="clock-time" id="clockTime">00:00:00</p>
+      <p class="clock-date" id="clockDate"></p>
+    </article>
+
+    <!-- ── FOCUS TIMER ── -->
+    <article class="card card-timer" aria-label="Focus timer">
+      <h2 class="card-title">Focus Timer</h2>
+      <p class="timer-display" id="timerDisplay">25:00</p>
+      <div class="timer-controls">
+        <button class="btn btn-primary" id="timerStartBtn">Start</button>
+        <button class="btn btn-secondary" id="timerStopBtn">Stop</button>
+        <button class="btn btn-ghost" id="timerResetBtn">Reset</button>
+      </div>
+      <p class="timer-label" id="timerLabel">Ready to focus</p>
+    </article>
+
+    <!-- ── MY TASKS ── -->
+    <article class="card card-tasks" aria-label="Task list">
+      <div class="card-header-row">
+        <h2 class="card-title">My Tasks</h2>
+        <span class="task-counter" id="taskCounter">0 / 0 completed</span>
+      </div>
+
+      <div class="task-add-row">
+        <input
+          type="text"
+          id="taskInput"
+          class="text-input"
+          placeholder="Add a new task…"
+          maxlength="120"
+          aria-label="New task"
+        />
+        <button class="btn btn-primary" id="addTaskBtn">Add</button>
+      </div>
+
+      <div class="task-sort-row">
+        <label for="taskSort" class="sort-label">Sort:</label>
+        <select id="taskSort" class="sort-select" aria-label="Sort tasks">
+          <option value="default">Default Order</option>
+          <option value="unfinished">Unfinished First</option>
+          <option value="completed">Completed First</option>
+        </select>
+      </div>
+
+      <ul class="task-list" id="taskList" aria-live="polite"></ul>
+    </article>
+
+    <!-- ── QUICK LINKS ── -->
+    <article class="card card-links" aria-label="Quick links">
+      <h2 class="card-title">Quick Links</h2>
+
+      <div class="link-add-form">
+        <input
+          type="text"
+          id="linkNameInput"
+          class="text-input"
+          placeholder="Site name"
+          maxlength="60"
+          aria-label="Site name"
+        />
+        <input
+          type="url"
+          id="linkUrlInput"
+          class="text-input"
+          placeholder="https://example.com"
+          maxlength="300"
+          aria-label="Site URL"
+        />
+        <button class="btn btn-primary" id="addLinkBtn">Add</button>
+      </div>
+
+      <ul class="link-list" id="linkList" aria-live="polite"></ul>
+    </article>
+
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
